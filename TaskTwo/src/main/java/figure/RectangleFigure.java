@@ -28,7 +28,7 @@ public class RectangleFigure implements GeometricFigure {
         double maxY = max(max(a.getY(),b.getY()), max(c.getY(),d.getY()));
 
         System.out.println(minX + " " + minY + " " + maxX + " " + maxY);
-        System.out.println(operationService.returnAbsPoint(a));
+       // System.out.println(operationService.returnAbsPoint(a));
 
         if(point.getX() >= minX && point.getX() <= maxX && point.getY() >= minY && point.getY() <= maxY){
             return "Точка входит";

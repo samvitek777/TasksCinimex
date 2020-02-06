@@ -15,18 +15,20 @@ public class OperationService {
      * @param point - координаты точки с положительными или отрицательными значениями
      * @return - модуль по двум точкам x и y
      */
-    public Point returnAbsPoint (Point point){
+    private Point returnAbsPoint (Point point){
         return new Point(Math.abs(point.getX()), Math.abs(point.getY()));
     }
 
     /**
-     * Метод меняющее значение точки относительно началу координат
+     * Возможно обьединить методы модуля с этим
+     *
+     * Метод меняющее значение точки относительно началу координат и меняющее положение точки в 1 четверть
      * @param point - координаты точки которую нужно изменить
      * @param center - координаты точки относительно какой будет начало координатной оси
      * @return - измененную точку
      */
     public Point returnStartCoordinat(Point point, Point center){
-        return new Point(point.getX() - center.getX(), point.getY()-center.getY());
+        return new Point(Math.abs(point.getX()) - center.getX(), Math.abs(point.getY()) - center.getY());
     }
 
     /**
