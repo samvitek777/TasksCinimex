@@ -1,14 +1,15 @@
 package domain;
 
+
 import java.util.Objects;
 
-/** Class position point
- *
- * @author Samoylenko Victor
+/**
+ * Класс позиции точки в координатной оси(x,y)
+ * @author Самойленко Виктор
  * @version 1.0
  */
 
-public class Point {
+public class Point implements Comparable  {
     private double x;
     private double y;
 
@@ -45,5 +46,13 @@ public class Point {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Point tmp = (Point) o;
+        if(this.getX() <= tmp.getX()){
+            return -1;
+        } else return 1;
     }
 }

@@ -31,8 +31,24 @@ public class OperationService {
         return new Point(Math.abs(point.getX()) - center.getX(), Math.abs(point.getY()) - center.getY());
     }
 
+    public double hypotenuseTriangle(double a, double b){
+        return Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+    }
+
     /**
-     * Метод вычесляющий положение точки отночительно прямой
+     * Метод для нахождения точки в отрезке или вне его
+     * @param a - точка начала отрезка
+     * @param b - точка конца отрезка
+     * @param point - точка для которой нужно найти входит она ли в этот отрезок
+     * @return - входит или нет
+     */
+    public boolean includedInLine(double a, double b, double point){
+        if(a <= point && point <= b) return true;
+        return false;
+    }
+
+    /**
+     * Метод вычесляющий положение точки относительно прямой
      * @param pointOne - координаты точки начала прямой
      * @param pointTwo - координаты точки конца прямой
      * @param pointX - координаты точки отношение которой нужно узнать
@@ -40,8 +56,16 @@ public class OperationService {
      *                  Если оно меньше 0, то точка находится левее отрезка.
      *                  Если оно равно 0, то точка находится на отрезке
      */
-    public double pointRelativeLine(Point pointOne, Point pointTwo, Point pointX){
+    private double pointRelativeLine(Point pointOne, Point pointTwo, Point pointX){
         return (pointX.getX()-pointOne.getX())*(pointTwo.getY()-pointOne.getY())
                 -(pointX.getY()-pointOne.getY())*(pointTwo.getX()-pointOne.getX());
+    }
+
+    private boolean pointsSideLine(Point pointA, Point pointB, Point pointC, Point pointD){
+        return pointRelativeLine(pointA, pointB, pointC) * pointRelativeLine(pointA, pointB, pointD) >= 0;
+    }
+
+    public boolean entryPointTriangle(Point a, Point b, Point c, Point d){
+        return pointsSideLine(a,b,c,d) && pointsSideLine(b,c,a,d) && pointsSideLine(c,a,b,d);
     }
 }

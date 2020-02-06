@@ -5,11 +5,11 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-    /**
-     * Класс со вспомогательными методами для работы с коллекцией.
-     * @autor Самойленко Виктор
-     * @version 1.0
-     */
+/**
+ * Класс со вспомогательными методами для работы с коллекцией.
+ * @autor Самойленко Виктор
+ * @version 1.0
+ */
 public class CollectionService {
     private int deleteNumber;
 

@@ -1,14 +1,19 @@
 import domain.Point;
 import figure.CircleFigure;
+import figure.GeometricFigure;
 import figure.RectangleFigure;
 
+/**Задача 2
+ Реализовать программу определения вхождения точки в разнообразные геометрические фигуры. А также работы с фигурами.
+    1.Предусмотреть возможность создания и хранения информации о окружностях, треугольниках,  прямоугольниках
+    2.Реализовать функционал определения вхождения указанной точки на плоскости в указанную  фигуру.
+    3.Реализовать функционал  работы с треугольниками:
+    Определения типа треугольника: равнобедренный,  прямоугольный, тупоугольный
+    *Реализовать функционал  определения подобия двух треугольников (являются подобными – не являются)
+ * @autor Самойленко Виктор
+ * @version 1.0
+ */
 public class Main {
     public static void main(String[] args) {
-        CircleFigure circleFigure = new CircleFigure(new Point(1, 1), 3);
-        System.out.println(circleFigure.entry(new Point(4, 2)));
-        RectangleFigure rectangleFigure = new RectangleFigure(
-                new Point(-2,-2), new Point(-2, 2), new Point(2, 2), new Point(2,-2));
-        System.out.println(rectangleFigure.entry(new Point(2,3)));
-
     }
 }

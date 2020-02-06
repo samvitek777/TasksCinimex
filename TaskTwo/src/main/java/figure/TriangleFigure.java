@@ -1,25 +1,37 @@
 package figure;
 
 import domain.Point;
+import domain.TypeFigure;
+import services.OperationService;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TriangleFigure implements GeometricFigure {
 
-    private Point a, b, c;
+    private List<Point> points;
+    private OperationService operationService;
 
     public TriangleFigure(Point a, Point b, Point c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        points = new ArrayList<>();
+        points.add(a);
+        points.add(b);
+        points.add(c);
+
+        Collections.sort(points);
+        operationService = new OperationService();
     }
 
 
     @Override
-    public String type() {
-        return "Треугольник";
+    public TypeFigure type() {
+        System.out.println(points);
+        return TypeFigure.isosceles_triangle;
     }
 
     @Override
-    public String entry(Point point) {
-        return null;
+    public boolean entry(Point point) {
+        return operationService.entryPointTriangle(points.get(0), points.get(1), points.get(2), point);
     }
 }

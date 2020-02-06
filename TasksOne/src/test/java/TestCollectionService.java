@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+//Пункт 5
 public class TestCollectionService extends Assert {
     private File file;
     private CollectionService collectionService;
