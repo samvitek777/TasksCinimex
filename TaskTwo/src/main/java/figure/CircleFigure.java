@@ -3,6 +3,7 @@ package figure;
 import domain.Point;
 import domain.TypeFigure;
 import services.OperationService;
+import services.TriangleService;
 
 /**
  * Класс окружности
@@ -14,6 +15,7 @@ public class CircleFigure implements GeometricFigure {
     private Point center;
     private double radius;
     private OperationService operationService;
+    private TriangleService triangleService;
 
     /**
      * Конструктор создания окружности
@@ -24,10 +26,7 @@ public class CircleFigure implements GeometricFigure {
         this.center = center;
         this.radius = radius;
         operationService = new OperationService();
-        if(type()==TypeFigure.none){
-            System.out.println("Ошибка в запонение фигуры!!! Радус " + radius + " <= 0");
-            return;
-        }
+        triangleService = new TriangleService();
     }
 
     @Override
@@ -43,7 +42,8 @@ public class CircleFigure implements GeometricFigure {
         Point pointStartCoord = operationService.returnStartCoordinat(point, center);
 
         //Нахождение гипотенузы треугольника
-        double hypotenuse = operationService.hypotenuseTriangle(pointStartCoord.getX(), pointStartCoord.getY());
+        double hypotenuse = triangleService.hypotenuseTriangle(pointStartCoord.getX(), pointStartCoord.getY());
+        System.out.println(hypotenuse);
 
         //сравнение гипотинузы и радиуса
         if(hypotenuse > radius){

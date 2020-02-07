@@ -13,7 +13,6 @@ public class TestCircle extends Assert {
     @Before
     public void setData(){
         geometricFigure = new CircleFigure(new Point(1,1), 2);
-       // geometricFigure2 = new CircleFigure(new Point(1,2), -1);
     }
 
     @Test
@@ -27,8 +26,8 @@ public class TestCircle extends Assert {
         Point point = new Point(0,1);
         Point point1 = new Point(1, 1);
         Point point2 = new Point(2,2);
-        assertTrue(geometricFigure.entry(point) == true);
-        assertTrue(geometricFigure.entry(point1) == true);
-        assertTrue(geometricFigure.entry(point2) == true);
+        assertTrue(geometricFigure.entry(point));
+        assertTrue(geometricFigure.entry(point1));
+        assertTrue(geometricFigure.entry(point2));
     }
 }

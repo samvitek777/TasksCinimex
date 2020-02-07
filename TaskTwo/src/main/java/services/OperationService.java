@@ -11,17 +11,6 @@ import domain.Point;
 public class OperationService {
 
     /**
-     * Метод возвращаемый положительное значение точки, нужен для отображения фигуры в 1четверти
-     * @param point - координаты точки с положительными или отрицательными значениями
-     * @return - модуль по двум точкам x и y
-     */
-    private Point returnAbsPoint (Point point){
-        return new Point(Math.abs(point.getX()), Math.abs(point.getY()));
-    }
-
-    /**
-     * Возможно обьединить методы модуля с этим
-     *
      * Метод меняющее значение точки относительно началу координат и меняющее положение точки в 1 четверть
      * @param point - координаты точки которую нужно изменить
      * @param center - координаты точки относительно какой будет начало координатной оси
@@ -29,10 +18,6 @@ public class OperationService {
      */
     public Point returnStartCoordinat(Point point, Point center){
         return new Point(Math.abs(point.getX()) - center.getX(), Math.abs(point.getY()) - center.getY());
-    }
-
-    public double hypotenuseTriangle(double a, double b){
-        return Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
     }
 
     /**
@@ -45,6 +30,17 @@ public class OperationService {
     public boolean includedInLine(double a, double b, double point){
         if(a <= point && point <= b) return true;
         return false;
+    }
+
+    /**
+     *  Метод  для определения длинны отрезка по двум точкам на плоскости
+     * @param a - точка начала отрезка на плоскости
+     * @param b - точка конца отрезка на плоскости
+     * @return - длинны отрезка
+     */
+    public double sideLength(Point a, Point b){
+
+        return Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2));
     }
 
     /**
@@ -61,10 +57,26 @@ public class OperationService {
                 -(pointX.getY()-pointOne.getY())*(pointTwo.getX()-pointOne.getX());
     }
 
+    /**
+     * Метод для оперделения лежат ли точки 2 точки C и D по одну сторону с отрезком AB
+     * @param pointA - первая точка прямоугольника
+     * @param pointB - вторая точка треугольника
+     * @param pointC - третья точка треугольника
+     * @param pointD - точка на плоскости для которой нужно определить вхождения в фигуру
+     * @return true - лежат, false - не лежат
+     */
     private boolean pointsSideLine(Point pointA, Point pointB, Point pointC, Point pointD){
         return pointRelativeLine(pointA, pointB, pointC) * pointRelativeLine(pointA, pointB, pointD) >= 0;
     }
 
+    /**
+     *  Метод определяющий вхождение точки d в треугольник abc
+     * @param a - первая точка прямоугольника
+     * @param b - вторая точка треугольника
+     * @param c - третья точка треугольника
+     * @param d - точка на плоскости для которой нужно определить вхождения в фигуру
+     * @return - вхождение точки в треугольник
+     */
     public boolean entryPointTriangle(Point a, Point b, Point c, Point d){
         return pointsSideLine(a,b,c,d) && pointsSideLine(b,c,a,d) && pointsSideLine(c,a,b,d);
     }

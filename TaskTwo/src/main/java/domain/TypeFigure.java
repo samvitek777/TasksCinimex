@@ -7,5 +7,5 @@ package domain;
  */
 public enum TypeFigure {
     circle, rectangle, isosceles_triangle, right_triangle,
-    obtuse_triangle, none;
+    obtuse_triangle, acute_triangle, none;
 }

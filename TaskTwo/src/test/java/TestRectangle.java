@@ -19,13 +19,13 @@ public class TestRectangle extends Assert {
 
     @Test
     public void testType(){
-        assertEquals(TypeFigure.rectangle, geometricFigure.type());
+       assertEquals(TypeFigure.rectangle, geometricFigure.type());
     }
 
     @Test
     public void testEntry(){
         Point point = new Point(1,1);
-        assertTrue(geometricFigure.entry(point) == true);
-        assertTrue(geometricFigure.entry(new Point(-3, 0)) == false);
+        assertTrue(geometricFigure.entry(point));
+        assertFalse(geometricFigure.entry(new Point(-3, 0)));
     }
 }

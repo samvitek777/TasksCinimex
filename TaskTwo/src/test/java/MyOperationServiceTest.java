@@ -44,13 +44,13 @@ public class MyOperationServiceTest extends Assert {
 
     @Test
     public void testIncludedInLine(){
-        assertTrue(operationService.includedInLine(-1, 1, 0) == true);
-        assertTrue(operationService.includedInLine(-1, 1, 2) == false);
+        assertTrue(operationService.includedInLine(-1, 1, 0));
+        assertFalse(operationService.includedInLine(-1, 1, 2));
 
     }
 
     @Test
-    public void TestPointRelativeLine(){
-
+    public void testSideLength(){
+        assertTrue(operationService.sideLength(new Point(0,2), new Point(0, -1)) == 3);
     }
 }
