@@ -54,4 +54,13 @@ public class RectangleFigure implements GeometricFigure {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Квадрат со сторонами: "  +
+                " a " + points.get(0) +
+                ", b " + points.get(1) +
+                ", c " + points.get(2) +
+                ", d " + points.get(3);
+    }
 }

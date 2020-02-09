@@ -41,9 +41,9 @@ public class Point implements Comparable  {
 
     @Override
     public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
+        return "Точка со значениями: " +
+                "x= " + x +
+                ", y= " + y +
                 '}';
     }
 
