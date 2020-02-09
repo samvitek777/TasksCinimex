@@ -1,3 +1,5 @@
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 /**
  * Задача 3
  * Реализовать кэш с временем жизни элементов.
@@ -17,11 +19,20 @@
  *    4. Изменение параметра timeToLive в любой момент жизненного цикла кэша
  *    5. Очистка кэша
  *    6. Обновление времени добавления addTime элемента
- * @autor Самойленко Виктор
+ *  @autor Самойленко Виктор
  *  @version 1.0
  */
 public class Main {
-    public static void main(String[] args) throws Exception {
-        //MyCache<Integer, Object> myCache = new MyCache<>(1000);
+    private final ScheduledExecutorService scheduler =
+        Executors.newScheduledThreadPool(1);
+    public static void main(String[] args){
+        try {
+            MyCache<Integer, Test> myCache = new MyCache<>(10000);
+            myCache.put(1, new Test("Test"));
+            System.out.println(myCache.get(1));
+            myCache.cleanСache();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
