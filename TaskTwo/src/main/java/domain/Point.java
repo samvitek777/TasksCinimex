@@ -17,12 +17,22 @@ public class Point implements Comparable  {
         this.y = y;
     }
 
+    public Point(){};
+
     public double getX() {
         return x;
     }
 
     public double getY() {
         return y;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     @Override
@@ -41,7 +51,7 @@ public class Point implements Comparable  {
 
     @Override
     public String toString() {
-        return "Точка со значениями: " +
+        return "Точка со значениями: {" +
                 "x= " + x +
                 ", y= " + y +
                 '}';

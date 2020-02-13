@@ -6,6 +6,7 @@ import services.OperationService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Класс прямоугольника
@@ -34,8 +35,35 @@ public class RectangleFigure implements GeometricFigure {
 
     @Override
     public TypeFigure type() {
+        Point a = points.get(0);
+        Point b = points.get(1);
+        Point c = points.get(2);
+        Point d = points.get(3);
+        Point x = new Point();
 
-        return TypeFigure.rectangle;
+        pointСheck(a, b, x);
+        pointСheck(a, c, x);
+
+        // Если найденная 4 точка равна стороне прямоугольника,то фигура прямоугольник
+        if(d.equals(x) || c.equals(x)){
+            return TypeFigure.rectangle;
+        } else {
+            return  TypeFigure.none;
+        }
+    }
+
+    /**
+     * Нахождение точки координаты 4 точки
+     * @param a - точка A начальная от которой будет отталкиваться
+     * @param b - вторая точка у которой если или координта x или y четвертой точки
+     * @param x -  4 точка
+     */
+    private void pointСheck(Point a, Point b, Point x){
+        if(a.getX() == b.getX()){
+            x.setY(b.getY());
+        } else {
+            x.setX(b.getX());
+        }
     }
 
 
@@ -57,10 +85,23 @@ public class RectangleFigure implements GeometricFigure {
 
     @Override
     public String toString() {
-        return "Квадрат со сторонами: "  +
-                " a " + points.get(0) +
-                ", b " + points.get(1) +
-                ", c " + points.get(2) +
-                ", d " + points.get(3);
+        return "\nКвадрат со сторонами: "  +
+                " a = ( " + points.get(0).getX() + " , " + points.get(0).getY() + " ), " +
+                " b = ( " + points.get(1).getX() + " , " + points.get(1).getY() + " ), " +
+                " c = ( " + points.get(2).getX() + " , " + points.get(2).getY() + " ), " +
+                " d = ( " + points.get(3).getX() + " , " + points.get(3).getY() + " ), ";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RectangleFigure that = (RectangleFigure) o;
+        return Objects.equals(points, that.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

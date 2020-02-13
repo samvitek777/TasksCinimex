@@ -17,16 +17,29 @@ import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
-        HashMap<Point, Optional<RectangleFigure>> pointData;
+        /*HashMap<Point, Optional<RectangleFigure>> pointData;
         RectangleService rectangleService = new RectangleService();
         long[] massPointsRectangle = new long[16];
         long[] massPoints = new long[4];
-        for (int i = 0; i < massPoints.length; i++){
-            massPoints[i] = i;
-        }
-        for (int i = 0; i < massPointsRectangle.length; i++){
+        for (int i = 0; i < 8; i++){
             massPointsRectangle[i] = i;
         }
+
+        massPointsRectangle[8]=0;
+        massPointsRectangle[9]=0;
+        massPointsRectangle[10]=0;
+        massPointsRectangle[11]=2;
+        massPointsRectangle[12]=2;
+        massPointsRectangle[13]=2;
+        massPointsRectangle[14]=2;
+        massPointsRectangle[15]=0;
+
+        for (int i = 0; i < 2; i++){
+            massPoints[i] = i;
+        }
+
+        massPoints[2] = 10;
+        massPoints[3] = 10;
         try {
             pointData = rectangleService.pointInRectangle(massPointsRectangle, massPoints);
             for(Map.Entry<Point, Optional<RectangleFigure>> pair : pointData.entrySet())
@@ -39,7 +52,7 @@ public class Main {
             }
         } catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
 
     }
 }
